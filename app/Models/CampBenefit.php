@@ -9,5 +9,5 @@ class CampBenefit extends Model
 {
     use HasFactory;
 
-    protected $filable = ['name']; // yang bisa diisi hanya name
+    protected $filable = ['camp_id', 'name']; // yang bisa diisi hanya name dan camp_id
 }
