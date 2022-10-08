@@ -13,22 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { // nama di tag url
-    return view('welcome');
-})->name('welcome');
-
-Route::get('login', function () {
-    return view('login'); // kembali ke 'login.blade.php'
-})->name('login'); // name buat 'route' di blade
+Route::get('/', function () { // nama untuk di url
+    return view('welcome'); // kembali ke veiw -> welcome.blade.php
+})->name('welcome'); // name untuk route di blade href={{route('welcome')}}
 
 Route::get('checkout', function () {
-    return view('checkout'); // kembali ke 'checkout.blade.php'
-})->name('checkout'); // name buat 'route' di blade
+    return view('checkout');
+})->name('checkout');
 
 Route::get('success-checkout', function () {
-    return view('success_checkout'); // kembali ke 'success_checkout.blade.php'
-})->name('success-checkout'); // name buat 'route' di blade
+    return view('success_checkout');
+})->name('success-checkout');
 
-Route::get('dashboard', function () {
-    return view('dashboard'); // kembali ke 'dashboard.blade.php'
-})->name('dashboard'); // name buat 'route' di blade
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
